@@ -1,0 +1,74 @@
+<!-- Dynamic Leader board tags creation -->
+<#assign var_LB_CLICK_URL = SQL_DAILY_DEALS_MASTER.CAMPAIGN_LB_CLICK_URL_EN>
+<#assign var_LB_IMG_URL = SQL_DAILY_DEALS_MASTER.CAMPAIGN_LB_URL_EN>
+<#assign var_LB_TEXT = SQL_DAILY_DEALS_MASTER.CAMPAIGN_LB_TEXT_EN>
+<#assign var_LB_UTM = var_CAMPAIGN_UTM?replace("%%content%%",var_LB_TEXT?replace(" ","-"))>
+
+<#assign var_DEAL_ID = []>
+<#assign var_VERTICAL_DESCRIPTION = []> 
+<#assign var_DEAL_IMG_URL = []> 
+<#assign var_DEAL_TITLE = []>
+<#assign var_DEAL_TAG_LINE = []>        
+<#assign var_DEAL_MAIL_SUBJECT = []> 
+<#assign var_DEAL_URL_UTM = []> 
+<#assign var_DEAL_URL = []> 
+<#assign var_DEAL_OLD_PRICE = []> 
+<#assign var_DEAL_PRICE = []> 
+<#assign var_DEAL_DISCOUNT_PRICE = []> 
+<#assign var_DEAL_DISCOUNT_PRICE_PER = []> 
+
+
+
+
+
+
+
+
+<!-- Assign the deal display count -->
+<#assign i = 0>
+<!-- Start querying for deals -->
+<#data SQL_DAILY_DEALS_DATA as deal>
+<#filter CAMPAIGN_CITY1 = var_CAMPAIGN_CITY CAMPAIGN_DATE1 = var_CAMPAIGN_DATE_FILTER_FORMAT>
+<#fields DEAL_ID VERTICAL_DESCRIPTION_EN VERTICAL_URL URL_TITLE IMG_URL BIG_IMG_URL OLD_PRICE PRICE IS_DISCOUNT_VISIBLE TITLE_EN MAIL_SUBJECT_EN MAIL_SUBJECT_SHORT_EN TAG_LINE_EN>
+
+	<!-- Main Deal Data-->
+  
+    
+    	<#assign var_DEAL_ID = var_DEAL_ID + [deal.DEAL_ID]>
+        <#assign var_VERTICAL_DESCRIPTION = var_VERTICAL_DESCRIPTION + [deal.VERTICAL_DESCRIPTION_EN]> 
+    	<#assign var_DEAL_IMG_URL = var_DEAL_IMG_URL + [deal.BIG_IMG_URL]> 
+        <#assign var_DEAL_TITLE = var_DEAL_TITLE + [deal.TITLE_EN]>
+        <#assign var_DEAL_TAG_LINE = var_DEAL_TAG_LINE + [deal.TAG_LINE_EN]>        
+        <#assign var_DEAL_MAIL_SUBJECT = var_DEAL_MAIL_SUBJECT + [deal.MAIL_SUBJECT_EN]> 
+        <#assign var_DEAL_URL_UTM_temp = var_CAMPAIGN_UTM?replace("%%content%%",deal.URL_TITLE)>
+        <#assign var_DEAL_URL_UTM = var_DEAL_URL_UTM + [var_DEAL_URL_UTM_temp]>
+        <#assign var_DEAL_URL_temp = "https://www.cobone.com/"+var_CAMPAIGN_LANGUAGE+"/deals/" + deal.VERTICAL_URL +"/" + deal.URL_TITLE +"/"+deal.DEAL_ID?c+"?"+var_DEAL_URL_UTM[i]>
+        <#assign var_DEAL_URL = var_DEAL_URL + [var_DEAL_URL_temp]>
+        <#assign var_DEAL_OLD_PRICE = var_DEAL_OLD_PRICE + [deal.OLD_PRICE]>
+        <#assign var_DEAL_PRICE = var_DEAL_PRICE + [deal.PRICE]> 
+        <#assign var_DEAL_DISCOUNT_PRICE_temp = var_DEAL_OLD_PRICE[i]-var_DEAL_PRICE[i]> 
+        <#assign var_DEAL_DISCOUNT_PRICE = var_DEAL_DISCOUNT_PRICE + [var_DEAL_DISCOUNT_PRICE_temp]> 
+        <#if var_DEAL_DISCOUNT_PRICE_temp &gt;= 1 && var_DEAL_OLD_PRICE[i] &gt;= 1 && deal.IS_DISCOUNT_VISIBLE ="Y">
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_temp = (var_DEAL_DISCOUNT_PRICE_temp/var_DEAL_OLD_PRICE[i])*100>                     
+            <#assign var_DEAL_DISCOUNT_PRICE_PER = var_DEAL_DISCOUNT_PRICE_PER + [var_DEAL_DISCOUNT_PRICE_PER_temp]>                     
+            <#else>
+            <#assign var_DEAL_DISCOUNT_PRICE_PER = var_DEAL_DISCOUNT_PRICE_PER + [0]>                     
+            
+        </#if>            
+
+	
+    
+<!-- Deal display count increment -->
+<#assign i = i+1>
+
+</#data>
+
+<#assign counter = []>
+<!-- Start querying for deals -->
+<#data SQL_DAILY_DEALS_PRIORITY as city>
+<#filter CITY = var_CAMPAIGN_CITY>
+<#fields SCH_PRIORITY>
+<#if city.SCH_PRIORITY=0><#else>
+    <#assign counter = counter + [city.SCH_PRIORITY]>
+    </#if>
+</#data>

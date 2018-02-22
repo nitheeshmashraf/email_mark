@@ -1,0 +1,419 @@
+<!-- Dynamic Leader board tags creation -->
+<#assign var_LB_CLICK_URL = SQL_DAILY_DEALS_MASTER.CAMPAIGN_LB_CLICK_URL_EN>
+<#assign var_LB_IMG_URL = SQL_DAILY_DEALS_MASTER.CAMPAIGN_LB_URL_EN>
+<#assign var_LB_TEXT = SQL_DAILY_DEALS_MASTER.CAMPAIGN_LB_TEXT_EN>
+<#assign var_LB_UTM = var_CAMPAIGN_UTM?replace("%%content%%",var_LB_TEXT?replace(" ","-"))>
+
+<!-- Assign the deal display count -->
+<#assign var_DEAL_DISPLAY_COUNT = 0>
+<!-- Start querying for deals -->
+<#data SQL_DAILY_DEALS_DATA as deal>
+<#filter CAMPAIGN_CITY1 = var_CAMPAIGN_CITY CAMPAIGN_DATE1 = var_CAMPAIGN_DATE_FILTER_FORMAT>
+<#fields DEAL_ID VERTICAL_DESCRIPTION_EN VERTICAL_URL URL_TITLE IMG_URL BIG_IMG_URL OLD_PRICE PRICE IS_DISCOUNT_VISIBLE TITLE_EN MAIL_SUBJECT_EN MAIL_SUBJECT_SHORT_EN TAG_LINE_EN>
+
+	<!-- Main Deal Data-->
+    <#if var_DEAL_DISPLAY_COUNT == 0>
+    
+    	<#assign var_DEAL_ID_0 = deal.DEAL_ID>
+        <#assign var_VERTICAL_DESCRIPTION_0 = deal.VERTICAL_DESCRIPTION_EN> 
+    	<#assign var_DEAL_IMG_URL_0 = deal.BIG_IMG_URL> 
+        <#assign var_DEAL_TITLE_0 = deal.TITLE_EN>
+        <#assign var_DEAL_TAG_LINE_0 = deal.TAG_LINE_EN>        
+        <#assign var_DEAL_MAIL_SUBJECT_0 = deal.MAIL_SUBJECT_EN> 
+        <#assign var_DEAL_URL_UTM_0 = var_CAMPAIGN_UTM?replace("%%content%%",deal.URL_TITLE)>
+        <#assign var_DEAL_URL_0 = "https://www.cobone.com/"+var_CAMPAIGN_LANGUAGE+"/deals/" + deal.VERTICAL_URL +"/" + deal.URL_TITLE +"/"+var_DEAL_ID_0?c+"?"+var_DEAL_URL_UTM_0>  
+        <#assign var_DEAL_OLD_PRICE_0 = deal.OLD_PRICE>
+        <#assign var_DEAL_PRICE_0 = deal.PRICE> 
+        <#assign var_DEAL_DISCOUNT_PRICE_0 = var_DEAL_OLD_PRICE_0-var_DEAL_PRICE_0> 
+        <#if var_DEAL_DISCOUNT_PRICE_0 &gt;= 1 && var_DEAL_OLD_PRICE_0 &gt;= 1 && deal.IS_DISCOUNT_VISIBLE ="Y">
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_0 = (var_DEAL_DISCOUNT_PRICE_0/var_DEAL_OLD_PRICE_0)*100>                     
+            <#else>
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_0 = 0>
+        </#if>            
+    </#if>
+	
+    
+    <!-- 1st Deal Data-->
+    <#if var_DEAL_DISPLAY_COUNT == 1>
+    
+    	<#assign var_DEAL_ID_1 = deal.DEAL_ID>
+        <#assign var_VERTICAL_DESCRIPTION_1 = deal.VERTICAL_DESCRIPTION_EN> 
+    	<#assign var_DEAL_IMG_URL_1 = deal.BIG_IMG_URL> 
+        <#assign var_DEAL_TITLE_1 = deal.TITLE_EN>
+        <#assign var_DEAL_TAG_LINE_1 = deal.TAG_LINE_EN>        
+        <#assign var_DEAL_MAIL_SUBJECT_1 = deal.MAIL_SUBJECT_EN> 
+        <#assign var_DEAL_URL_UTM_1 = var_CAMPAIGN_UTM?replace("%%content%%",deal.URL_TITLE)>
+        <#assign var_DEAL_URL_1 = "https://www.cobone.com/"+var_CAMPAIGN_LANGUAGE+"/deals/" + deal.VERTICAL_URL +"/" + deal.URL_TITLE +"/"+var_DEAL_ID_1?c+"?"+var_DEAL_URL_UTM_1>  
+        <#assign var_DEAL_OLD_PRICE_1 = deal.OLD_PRICE>
+        <#assign var_DEAL_PRICE_1 = deal.PRICE> 
+        <#assign var_DEAL_DISCOUNT_PRICE_1 = var_DEAL_OLD_PRICE_1-var_DEAL_PRICE_1> 
+        <#if var_DEAL_DISCOUNT_PRICE_1 &gt;= 1 && var_DEAL_OLD_PRICE_1 &gt;= 1 && deal.IS_DISCOUNT_VISIBLE ="Y">
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_1 = (var_DEAL_DISCOUNT_PRICE_1/var_DEAL_OLD_PRICE_1)*100>                     
+            <#else>
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_1 = 0>
+        </#if>            
+    </#if>
+    
+    <!-- 2nd Deal Data-->
+    <#if var_DEAL_DISPLAY_COUNT == 2>
+    
+    	<#assign var_DEAL_ID_2 = deal.DEAL_ID>
+        <#assign var_VERTICAL_DESCRIPTION_2 = deal.VERTICAL_DESCRIPTION_EN> 
+    	<#assign var_DEAL_IMG_URL_2 = deal.BIG_IMG_URL> 
+        <#assign var_DEAL_TITLE_2 = deal.TITLE_EN>
+        <#assign var_DEAL_TAG_LINE_2 = deal.TAG_LINE_EN>        
+        <#assign var_DEAL_MAIL_SUBJECT_2 = deal.MAIL_SUBJECT_EN> 
+        <#assign var_DEAL_URL_UTM_2 = var_CAMPAIGN_UTM?replace("%%content%%",deal.URL_TITLE)>
+        <#assign var_DEAL_URL_2 = "https://www.cobone.com/"+var_CAMPAIGN_LANGUAGE+"/deals/" + deal.VERTICAL_URL +"/" + deal.URL_TITLE +"/"+var_DEAL_ID_2?c+"?"+var_DEAL_URL_UTM_2>  
+        <#assign var_DEAL_OLD_PRICE_2 = deal.OLD_PRICE>
+        <#assign var_DEAL_PRICE_2 = deal.PRICE> 
+        <#assign var_DEAL_DISCOUNT_PRICE_2 = var_DEAL_OLD_PRICE_2-var_DEAL_PRICE_2> 
+        <#if var_DEAL_DISCOUNT_PRICE_2 &gt;= 1 && var_DEAL_OLD_PRICE_2 &gt;= 1 && deal.IS_DISCOUNT_VISIBLE ="Y">
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_2 = (var_DEAL_DISCOUNT_PRICE_2/var_DEAL_OLD_PRICE_2)*100>                     
+            <#else>
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_2 = 0>
+        </#if>            
+    </#if>
+    
+    <!-- 3rd Deal Data-->
+    <#if var_DEAL_DISPLAY_COUNT == 3>
+    
+    	<#assign var_DEAL_ID_3 = deal.DEAL_ID>
+        <#assign var_VERTICAL_DESCRIPTION_3 = deal.VERTICAL_DESCRIPTION_EN> 
+    	<#assign var_DEAL_IMG_URL_3 = deal.BIG_IMG_URL> 
+        <#assign var_DEAL_TITLE_3 = deal.TITLE_EN>
+        <#assign var_DEAL_TAG_LINE_3 = deal.TAG_LINE_EN>        
+        <#assign var_DEAL_MAIL_SUBJECT_3 = deal.MAIL_SUBJECT_EN> 
+        <#assign var_DEAL_URL_UTM_3 = var_CAMPAIGN_UTM?replace("%%content%%",deal.URL_TITLE)>
+        <#assign var_DEAL_URL_3 = "https://www.cobone.com/"+var_CAMPAIGN_LANGUAGE+"/deals/" + deal.VERTICAL_URL +"/" + deal.URL_TITLE +"/"+var_DEAL_ID_3?c+"?"+var_DEAL_URL_UTM_3>  
+        <#assign var_DEAL_OLD_PRICE_3 = deal.OLD_PRICE>
+        <#assign var_DEAL_PRICE_3 = deal.PRICE> 
+        <#assign var_DEAL_DISCOUNT_PRICE_3 = var_DEAL_OLD_PRICE_3-var_DEAL_PRICE_3> 
+        <#if var_DEAL_DISCOUNT_PRICE_3 &gt;= 1 && var_DEAL_OLD_PRICE_3 &gt;= 1 && deal.IS_DISCOUNT_VISIBLE ="Y">
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_3 = (var_DEAL_DISCOUNT_PRICE_3/var_DEAL_OLD_PRICE_3)*100>                     
+            <#else>
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_3 = 0>
+        </#if>            
+    </#if>
+    
+    <!-- 4th Deal Data-->
+    <#if var_DEAL_DISPLAY_COUNT == 4>
+    
+    	<#assign var_DEAL_ID_4 = deal.DEAL_ID>
+        <#assign var_VERTICAL_DESCRIPTION_4 = deal.VERTICAL_DESCRIPTION_EN> 
+    	<#assign var_DEAL_IMG_URL_4 = deal.BIG_IMG_URL> 
+        <#assign var_DEAL_TITLE_4 = deal.TITLE_EN>
+        <#assign var_DEAL_TAG_LINE_4 = deal.TAG_LINE_EN>        
+        <#assign var_DEAL_MAIL_SUBJECT_4 = deal.MAIL_SUBJECT_EN> 
+        <#assign var_DEAL_URL_UTM_4 = var_CAMPAIGN_UTM?replace("%%content%%",deal.URL_TITLE)>
+        <#assign var_DEAL_URL_4 = "https://www.cobone.com/"+var_CAMPAIGN_LANGUAGE+"/deals/" + deal.VERTICAL_URL +"/" + deal.URL_TITLE +"/"+var_DEAL_ID_4?c+"?"+var_DEAL_URL_UTM_4>  
+        <#assign var_DEAL_OLD_PRICE_4 = deal.OLD_PRICE>
+        <#assign var_DEAL_PRICE_4 = deal.PRICE> 
+        <#assign var_DEAL_DISCOUNT_PRICE_4 = var_DEAL_OLD_PRICE_4-var_DEAL_PRICE_4> 
+        <#if var_DEAL_DISCOUNT_PRICE_4 &gt;= 1 && var_DEAL_OLD_PRICE_4 &gt;= 1 && deal.IS_DISCOUNT_VISIBLE ="Y">
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_4 = (var_DEAL_DISCOUNT_PRICE_4/var_DEAL_OLD_PRICE_4)*100>                     
+            <#else>
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_4 = 0>
+        </#if>            
+    </#if>
+    
+    <!-- 5th Deal Data-->
+    <#if var_DEAL_DISPLAY_COUNT == 5>
+    
+    	<#assign var_DEAL_ID_5 = deal.DEAL_ID>
+        <#assign var_VERTICAL_DESCRIPTION_5 = deal.VERTICAL_DESCRIPTION_EN> 
+    	<#assign var_DEAL_IMG_URL_5 = deal.BIG_IMG_URL> 
+        <#assign var_DEAL_TITLE_5 = deal.TITLE_EN>
+        <#assign var_DEAL_TAG_LINE_5 = deal.TAG_LINE_EN>        
+        <#assign var_DEAL_MAIL_SUBJECT_5 = deal.MAIL_SUBJECT_EN> 
+        <#assign var_DEAL_URL_UTM_5 = var_CAMPAIGN_UTM?replace("%%content%%",deal.URL_TITLE)>
+        <#assign var_DEAL_URL_5 = "https://www.cobone.com/"+var_CAMPAIGN_LANGUAGE+"/deals/" + deal.VERTICAL_URL +"/" + deal.URL_TITLE +"/"+var_DEAL_ID_5?c+"?"+var_DEAL_URL_UTM_5>  
+        <#assign var_DEAL_OLD_PRICE_5 = deal.OLD_PRICE>
+        <#assign var_DEAL_PRICE_5 = deal.PRICE> 
+        <#assign var_DEAL_DISCOUNT_PRICE_5 = var_DEAL_OLD_PRICE_5-var_DEAL_PRICE_5> 
+        <#if var_DEAL_DISCOUNT_PRICE_5 &gt;= 1 && var_DEAL_OLD_PRICE_5 &gt;= 1 && deal.IS_DISCOUNT_VISIBLE ="Y">
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_5 = (var_DEAL_DISCOUNT_PRICE_5/var_DEAL_OLD_PRICE_5)*100>                     
+            <#else>
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_5 = 0>
+        </#if>            
+    </#if>
+    
+    <!-- 6th Deal Data-->
+    <#if var_DEAL_DISPLAY_COUNT == 6>
+    
+    	<#assign var_DEAL_ID_6 = deal.DEAL_ID>
+        <#assign var_VERTICAL_DESCRIPTION_6 = deal.VERTICAL_DESCRIPTION_EN> 
+    	<#assign var_DEAL_IMG_URL_6 = deal.BIG_IMG_URL> 
+        <#assign var_DEAL_TITLE_6 = deal.TITLE_EN>
+        <#assign var_DEAL_TAG_LINE_6 = deal.TAG_LINE_EN>        
+        <#assign var_DEAL_MAIL_SUBJECT_6 = deal.MAIL_SUBJECT_EN> 
+        <#assign var_DEAL_URL_UTM_6 = var_CAMPAIGN_UTM?replace("%%content%%",deal.URL_TITLE)>
+        <#assign var_DEAL_URL_6 = "https://www.cobone.com/"+var_CAMPAIGN_LANGUAGE+"/deals/" + deal.VERTICAL_URL +"/" + deal.URL_TITLE +"/"+var_DEAL_ID_6?c+"?"+var_DEAL_URL_UTM_6>  
+        <#assign var_DEAL_OLD_PRICE_6 = deal.OLD_PRICE>
+        <#assign var_DEAL_PRICE_6 = deal.PRICE> 
+        <#assign var_DEAL_DISCOUNT_PRICE_6 = var_DEAL_OLD_PRICE_6-var_DEAL_PRICE_6> 
+        <#if var_DEAL_DISCOUNT_PRICE_6 &gt;= 1 && var_DEAL_OLD_PRICE_6 &gt;= 1 && deal.IS_DISCOUNT_VISIBLE ="Y">
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_6 = (var_DEAL_DISCOUNT_PRICE_6/var_DEAL_OLD_PRICE_6)*100>                     
+            <#else>
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_6 = 0>
+        </#if>            
+    </#if>
+    
+    <!-- 7th Deal Data-->
+    <#if var_DEAL_DISPLAY_COUNT == 7>
+    
+    	<#assign var_DEAL_ID_7 = deal.DEAL_ID>
+        <#assign var_VERTICAL_DESCRIPTION_7 = deal.VERTICAL_DESCRIPTION_EN> 
+    	<#assign var_DEAL_IMG_URL_7 = deal.BIG_IMG_URL> 
+        <#assign var_DEAL_TITLE_7 = deal.TITLE_EN>
+        <#assign var_DEAL_TAG_LINE_7 = deal.TAG_LINE_EN>        
+        <#assign var_DEAL_MAIL_SUBJECT_7 = deal.MAIL_SUBJECT_EN> 
+        <#assign var_DEAL_URL_UTM_7 = var_CAMPAIGN_UTM?replace("%%content%%",deal.URL_TITLE)>
+        <#assign var_DEAL_URL_7 = "https://www.cobone.com/"+var_CAMPAIGN_LANGUAGE+"/deals/" + deal.VERTICAL_URL +"/" + deal.URL_TITLE +"/"+var_DEAL_ID_7?c+"?"+var_DEAL_URL_UTM_7>  
+        <#assign var_DEAL_OLD_PRICE_7 = deal.OLD_PRICE>
+        <#assign var_DEAL_PRICE_7 = deal.PRICE> 
+        <#assign var_DEAL_DISCOUNT_PRICE_7 = var_DEAL_OLD_PRICE_7-var_DEAL_PRICE_7> 
+        <#if var_DEAL_DISCOUNT_PRICE_7 &gt;= 1 && var_DEAL_OLD_PRICE_7 &gt;= 1 && deal.IS_DISCOUNT_VISIBLE ="Y">
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_7 = (var_DEAL_DISCOUNT_PRICE_7/var_DEAL_OLD_PRICE_7)*100>                     
+            <#else>
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_7 = 0>
+        </#if>            
+    </#if>
+    
+    <!-- 8th Deal Data-->
+    <#if var_DEAL_DISPLAY_COUNT == 8>
+    
+    	<#assign var_DEAL_ID_8 = deal.DEAL_ID>
+        <#assign var_VERTICAL_DESCRIPTION_8 = deal.VERTICAL_DESCRIPTION_EN> 
+    	<#assign var_DEAL_IMG_URL_8 = deal.BIG_IMG_URL> 
+        <#assign var_DEAL_TITLE_8 = deal.TITLE_EN>
+        <#assign var_DEAL_TAG_LINE_8 = deal.TAG_LINE_EN>        
+        <#assign var_DEAL_MAIL_SUBJECT_8 = deal.MAIL_SUBJECT_EN> 
+        <#assign var_DEAL_URL_UTM_8 = var_CAMPAIGN_UTM?replace("%%content%%",deal.URL_TITLE)>
+        <#assign var_DEAL_URL_8 = "https://www.cobone.com/"+var_CAMPAIGN_LANGUAGE+"/deals/" + deal.VERTICAL_URL +"/" + deal.URL_TITLE +"/"+var_DEAL_ID_8?c+"?"+var_DEAL_URL_UTM_8>  
+        <#assign var_DEAL_OLD_PRICE_8 = deal.OLD_PRICE>
+        <#assign var_DEAL_PRICE_8 = deal.PRICE> 
+        <#assign var_DEAL_DISCOUNT_PRICE_8 = var_DEAL_OLD_PRICE_8-var_DEAL_PRICE_8> 
+        <#if var_DEAL_DISCOUNT_PRICE_8 &gt;= 1 && var_DEAL_OLD_PRICE_8 &gt;= 1 && deal.IS_DISCOUNT_VISIBLE ="Y">
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_8 = (var_DEAL_DISCOUNT_PRICE_8/var_DEAL_OLD_PRICE_8)*100>                     
+            <#else>
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_8 = 0>
+        </#if>            
+    </#if>
+    
+    <!-- 9th Deal Data-->
+    <#if var_DEAL_DISPLAY_COUNT == 9>
+    
+    	<#assign var_DEAL_ID_9 = deal.DEAL_ID>
+        <#assign var_VERTICAL_DESCRIPTION_9 = deal.VERTICAL_DESCRIPTION_EN> 
+    	<#assign var_DEAL_IMG_URL_9 = deal.BIG_IMG_URL> 
+        <#assign var_DEAL_TITLE_9 = deal.TITLE_EN>
+        <#assign var_DEAL_TAG_LINE_9 = deal.TAG_LINE_EN>        
+        <#assign var_DEAL_MAIL_SUBJECT_9 = deal.MAIL_SUBJECT_EN> 
+        <#assign var_DEAL_URL_UTM_9 = var_CAMPAIGN_UTM?replace("%%content%%",deal.URL_TITLE)>
+        <#assign var_DEAL_URL_9 = "https://www.cobone.com/"+var_CAMPAIGN_LANGUAGE+"/deals/" + deal.VERTICAL_URL +"/" + deal.URL_TITLE +"/"+var_DEAL_ID_9?c+"?"+var_DEAL_URL_UTM_9>  
+        <#assign var_DEAL_OLD_PRICE_9 = deal.OLD_PRICE>
+        <#assign var_DEAL_PRICE_9 = deal.PRICE> 
+        <#assign var_DEAL_DISCOUNT_PRICE_9 = var_DEAL_OLD_PRICE_9-var_DEAL_PRICE_9> 
+        <#if var_DEAL_DISCOUNT_PRICE_9 &gt;= 1 && var_DEAL_OLD_PRICE_9 &gt;= 1 && deal.IS_DISCOUNT_VISIBLE ="Y">
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_9 = (var_DEAL_DISCOUNT_PRICE_9/var_DEAL_OLD_PRICE_9)*100>                     
+            <#else>
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_9 = 0>
+        </#if>            
+    </#if>
+    
+    <!-- 10th Deal Data-->
+    <#if var_DEAL_DISPLAY_COUNT == 10>
+    
+    	<#assign var_DEAL_ID_10 = deal.DEAL_ID>
+        <#assign var_VERTICAL_DESCRIPTION_10 = deal.VERTICAL_DESCRIPTION_EN> 
+    	<#assign var_DEAL_IMG_URL_10 = deal.BIG_IMG_URL> 
+        <#assign var_DEAL_TITLE_10 = deal.TITLE_EN>
+        <#assign var_DEAL_TAG_LINE_10 = deal.TAG_LINE_EN>        
+        <#assign var_DEAL_MAIL_SUBJECT_10 = deal.MAIL_SUBJECT_EN> 
+        <#assign var_DEAL_URL_UTM_10 = var_CAMPAIGN_UTM?replace("%%content%%",deal.URL_TITLE)>
+        <#assign var_DEAL_URL_10 = "https://www.cobone.com/"+var_CAMPAIGN_LANGUAGE+"/deals/" + deal.VERTICAL_URL +"/" + deal.URL_TITLE +"/"+var_DEAL_ID_10?c+"?"+var_DEAL_URL_UTM_10>  
+        <#assign var_DEAL_OLD_PRICE_10 = deal.OLD_PRICE>
+        <#assign var_DEAL_PRICE_10 = deal.PRICE> 
+        <#assign var_DEAL_DISCOUNT_PRICE_10 = var_DEAL_OLD_PRICE_10-var_DEAL_PRICE_10> 
+        <#if var_DEAL_DISCOUNT_PRICE_10 &gt;= 1 && var_DEAL_OLD_PRICE_10 &gt;= 1 && deal.IS_DISCOUNT_VISIBLE ="Y">
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_10 = (var_DEAL_DISCOUNT_PRICE_10/var_DEAL_OLD_PRICE_10)*100>                     
+            <#else>
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_10 = 0>
+        </#if>            
+    </#if>
+
+ <!-- 11th Deal Data-->
+    <#if var_DEAL_DISPLAY_COUNT == 11>
+    
+    	<#assign var_DEAL_ID_11 = deal.DEAL_ID>
+        <#assign var_VERTICAL_DESCRIPTION_11 = deal.VERTICAL_DESCRIPTION_EN> 
+    	<#assign var_DEAL_IMG_URL_11 = deal.BIG_IMG_URL> 
+        <#assign var_DEAL_TITLE_11 = deal.TITLE_EN>
+        <#assign var_DEAL_TAG_LINE_11 = deal.TAG_LINE_EN>        
+        <#assign var_DEAL_MAIL_SUBJECT_11 = deal.MAIL_SUBJECT_EN> 
+        <#assign var_DEAL_URL_UTM_11 = var_CAMPAIGN_UTM?replace("%%content%%",deal.URL_TITLE)>
+        <#assign var_DEAL_URL_11 = "https://www.cobone.com/"+var_CAMPAIGN_LANGUAGE+"/deals/" + deal.VERTICAL_URL +"/" + deal.URL_TITLE +"/"+var_DEAL_ID_11?c+"?"+var_DEAL_URL_UTM_11>  
+        <#assign var_DEAL_OLD_PRICE_11 = deal.OLD_PRICE>
+        <#assign var_DEAL_PRICE_11 = deal.PRICE> 
+        <#assign var_DEAL_DISCOUNT_PRICE_11 = var_DEAL_OLD_PRICE_11-var_DEAL_PRICE_11> 
+        <#if var_DEAL_DISCOUNT_PRICE_11 &gt;= 1 && var_DEAL_OLD_PRICE_11 &gt;= 1 && deal.IS_DISCOUNT_VISIBLE ="Y">
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_11 = (var_DEAL_DISCOUNT_PRICE_11/var_DEAL_OLD_PRICE_11)*100>                     
+            <#else>
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_11 = 0>
+        </#if>            
+    </#if>
+
+ <!-- 12th Deal Data-->
+    <#if var_DEAL_DISPLAY_COUNT == 12>
+    
+    	<#assign var_DEAL_ID_12 = deal.DEAL_ID>
+        <#assign var_VERTICAL_DESCRIPTION_12 = deal.VERTICAL_DESCRIPTION_EN> 
+    	<#assign var_DEAL_IMG_URL_12 = deal.BIG_IMG_URL> 
+        <#assign var_DEAL_TITLE_12 = deal.TITLE_EN>
+        <#assign var_DEAL_TAG_LINE_12 = deal.TAG_LINE_EN>        
+        <#assign var_DEAL_MAIL_SUBJECT_12 = deal.MAIL_SUBJECT_EN> 
+        <#assign var_DEAL_URL_UTM_12 = var_CAMPAIGN_UTM?replace("%%content%%",deal.URL_TITLE)>
+        <#assign var_DEAL_URL_12 = "https://www.cobone.com/"+var_CAMPAIGN_LANGUAGE+"/deals/" + deal.VERTICAL_URL +"/" + deal.URL_TITLE +"/"+var_DEAL_ID_12?c+"?"+var_DEAL_URL_UTM_12>  
+        <#assign var_DEAL_OLD_PRICE_12 = deal.OLD_PRICE>
+        <#assign var_DEAL_PRICE_12 = deal.PRICE> 
+        <#assign var_DEAL_DISCOUNT_PRICE_12 = var_DEAL_OLD_PRICE_12-var_DEAL_PRICE_12> 
+        <#if var_DEAL_DISCOUNT_PRICE_12 &gt;= 1 && var_DEAL_OLD_PRICE_12 &gt;= 1 && deal.IS_DISCOUNT_VISIBLE ="Y">
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_12 = (var_DEAL_DISCOUNT_PRICE_12/var_DEAL_OLD_PRICE_12)*100>                     
+            <#else>
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_12 = 0>
+        </#if>            
+    </#if>
+
+ <!-- 13th Deal Data-->
+    <#if var_DEAL_DISPLAY_COUNT == 13>
+    
+    	<#assign var_DEAL_ID_13 = deal.DEAL_ID>
+        <#assign var_VERTICAL_DESCRIPTION_13 = deal.VERTICAL_DESCRIPTION_EN> 
+    	<#assign var_DEAL_IMG_URL_13 = deal.BIG_IMG_URL> 
+        <#assign var_DEAL_TITLE_13 = deal.TITLE_EN>
+        <#assign var_DEAL_TAG_LINE_13 = deal.TAG_LINE_EN>        
+        <#assign var_DEAL_MAIL_SUBJECT_13 = deal.MAIL_SUBJECT_EN> 
+        <#assign var_DEAL_URL_UTM_13 = var_CAMPAIGN_UTM?replace("%%content%%",deal.URL_TITLE)>
+        <#assign var_DEAL_URL_13 = "https://www.cobone.com/"+var_CAMPAIGN_LANGUAGE+"/deals/" + deal.VERTICAL_URL +"/" + deal.URL_TITLE +"/"+var_DEAL_ID_13?c+"?"+var_DEAL_URL_UTM_13>  
+        <#assign var_DEAL_OLD_PRICE_13 = deal.OLD_PRICE>
+        <#assign var_DEAL_PRICE_13 = deal.PRICE> 
+        <#assign var_DEAL_DISCOUNT_PRICE_13 = var_DEAL_OLD_PRICE_13-var_DEAL_PRICE_13> 
+        <#if var_DEAL_DISCOUNT_PRICE_13 &gt;= 1 && var_DEAL_OLD_PRICE_13 &gt;= 1 && deal.IS_DISCOUNT_VISIBLE ="Y">
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_13 = (var_DEAL_DISCOUNT_PRICE_13/var_DEAL_OLD_PRICE_13)*100>                     
+            <#else>
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_13 = 0>
+        </#if>            
+    </#if>
+
+ <!-- 14th Deal Data-->
+    <#if var_DEAL_DISPLAY_COUNT == 14>
+    
+    	<#assign var_DEAL_ID_14 = deal.DEAL_ID>
+        <#assign var_VERTICAL_DESCRIPTION_14 = deal.VERTICAL_DESCRIPTION_EN> 
+    	<#assign var_DEAL_IMG_URL_14 = deal.BIG_IMG_URL> 
+        <#assign var_DEAL_TITLE_14 = deal.TITLE_EN>
+        <#assign var_DEAL_TAG_LINE_14 = deal.TAG_LINE_EN>        
+        <#assign var_DEAL_MAIL_SUBJECT_14 = deal.MAIL_SUBJECT_EN> 
+        <#assign var_DEAL_URL_UTM_14 = var_CAMPAIGN_UTM?replace("%%content%%",deal.URL_TITLE)>
+        <#assign var_DEAL_URL_14 = "https://www.cobone.com/"+var_CAMPAIGN_LANGUAGE+"/deals/" + deal.VERTICAL_URL +"/" + deal.URL_TITLE +"/"+var_DEAL_ID_14?c+"?"+var_DEAL_URL_UTM_14>  
+        <#assign var_DEAL_OLD_PRICE_14 = deal.OLD_PRICE>
+        <#assign var_DEAL_PRICE_14 = deal.PRICE> 
+        <#assign var_DEAL_DISCOUNT_PRICE_14 = var_DEAL_OLD_PRICE_14-var_DEAL_PRICE_14> 
+        <#if var_DEAL_DISCOUNT_PRICE_14 &gt;= 1 && var_DEAL_OLD_PRICE_14 &gt;= 1 && deal.IS_DISCOUNT_VISIBLE ="Y">
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_14 = (var_DEAL_DISCOUNT_PRICE_14/var_DEAL_OLD_PRICE_14)*100>                     
+            <#else>
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_14 = 0>
+        </#if>            
+    </#if>
+
+ <!-- 15th Deal Data-->
+    <#if var_DEAL_DISPLAY_COUNT == 15>
+    
+    	<#assign var_DEAL_ID_15 = deal.DEAL_ID>
+        <#assign var_VERTICAL_DESCRIPTION_15 = deal.VERTICAL_DESCRIPTION_EN> 
+    	<#assign var_DEAL_IMG_URL_15 = deal.BIG_IMG_URL> 
+        <#assign var_DEAL_TITLE_15 = deal.TITLE_EN>
+        <#assign var_DEAL_TAG_LINE_15 = deal.TAG_LINE_EN>        
+        <#assign var_DEAL_MAIL_SUBJECT_15 = deal.MAIL_SUBJECT_EN> 
+        <#assign var_DEAL_URL_UTM_15 = var_CAMPAIGN_UTM?replace("%%content%%",deal.URL_TITLE)>
+        <#assign var_DEAL_URL_15 = "https://www.cobone.com/"+var_CAMPAIGN_LANGUAGE+"/deals/" + deal.VERTICAL_URL +"/" + deal.URL_TITLE +"/"+var_DEAL_ID_15?c+"?"+var_DEAL_URL_UTM_15>  
+        <#assign var_DEAL_OLD_PRICE_15 = deal.OLD_PRICE>
+        <#assign var_DEAL_PRICE_15 = deal.PRICE> 
+        <#assign var_DEAL_DISCOUNT_PRICE_15 = var_DEAL_OLD_PRICE_15-var_DEAL_PRICE_15> 
+        <#if var_DEAL_DISCOUNT_PRICE_15 &gt;= 1 && var_DEAL_OLD_PRICE_15 &gt;= 1 && deal.IS_DISCOUNT_VISIBLE ="Y">
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_15 = (var_DEAL_DISCOUNT_PRICE_15/var_DEAL_OLD_PRICE_15)*100>                     
+            <#else>
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_15 = 0>
+        </#if>            
+    </#if>
+
+ <!-- 16th Deal Data-->
+    <#if var_DEAL_DISPLAY_COUNT == 16>
+    
+    	<#assign var_DEAL_ID_16 = deal.DEAL_ID>
+        <#assign var_VERTICAL_DESCRIPTION_16 = deal.VERTICAL_DESCRIPTION_EN> 
+    	<#assign var_DEAL_IMG_URL_16 = deal.BIG_IMG_URL> 
+        <#assign var_DEAL_TITLE_16 = deal.TITLE_EN>
+        <#assign var_DEAL_TAG_LINE_16 = deal.TAG_LINE_EN>        
+        <#assign var_DEAL_MAIL_SUBJECT_16 = deal.MAIL_SUBJECT_EN> 
+        <#assign var_DEAL_URL_UTM_16 = var_CAMPAIGN_UTM?replace("%%content%%",deal.URL_TITLE)>
+        <#assign var_DEAL_URL_16 = "https://www.cobone.com/"+var_CAMPAIGN_LANGUAGE+"/deals/" + deal.VERTICAL_URL +"/" + deal.URL_TITLE +"/"+var_DEAL_ID_16?c+"?"+var_DEAL_URL_UTM_16>  
+        <#assign var_DEAL_OLD_PRICE_16 = deal.OLD_PRICE>
+        <#assign var_DEAL_PRICE_16 = deal.PRICE> 
+        <#assign var_DEAL_DISCOUNT_PRICE_16 = var_DEAL_OLD_PRICE_16-var_DEAL_PRICE_16> 
+        <#if var_DEAL_DISCOUNT_PRICE_16 &gt;= 1 && var_DEAL_OLD_PRICE_16 &gt;= 1 && deal.IS_DISCOUNT_VISIBLE ="Y">
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_16 = (var_DEAL_DISCOUNT_PRICE_16/var_DEAL_OLD_PRICE_16)*100>                     
+            <#else>
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_16 = 0>
+        </#if>            
+    </#if>
+
+
+ <!-- 17th Deal Data-->
+    <#if var_DEAL_DISPLAY_COUNT == 17>
+    
+    	<#assign var_DEAL_ID_17 = deal.DEAL_ID>
+        <#assign var_VERTICAL_DESCRIPTION_17 = deal.VERTICAL_DESCRIPTION_EN> 
+    	<#assign var_DEAL_IMG_URL_17 = deal.BIG_IMG_URL> 
+        <#assign var_DEAL_TITLE_17 = deal.TITLE_EN>
+        <#assign var_DEAL_TAG_LINE_17 = deal.TAG_LINE_EN>        
+        <#assign var_DEAL_MAIL_SUBJECT_17 = deal.MAIL_SUBJECT_EN> 
+        <#assign var_DEAL_URL_UTM_17 = var_CAMPAIGN_UTM?replace("%%content%%",deal.URL_TITLE)>
+        <#assign var_DEAL_URL_17 = "https://www.cobone.com/"+var_CAMPAIGN_LANGUAGE+"/deals/" + deal.VERTICAL_URL +"/" + deal.URL_TITLE +"/"+var_DEAL_ID_17?c+"?"+var_DEAL_URL_UTM_17>  
+        <#assign var_DEAL_OLD_PRICE_17 = deal.OLD_PRICE>
+        <#assign var_DEAL_PRICE_17 = deal.PRICE> 
+        <#assign var_DEAL_DISCOUNT_PRICE_17 = var_DEAL_OLD_PRICE_17-var_DEAL_PRICE_17> 
+        <#if var_DEAL_DISCOUNT_PRICE_17 &gt;= 1 && var_DEAL_OLD_PRICE_17 &gt;= 1 && deal.IS_DISCOUNT_VISIBLE ="Y">
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_17 = (var_DEAL_DISCOUNT_PRICE_17/var_DEAL_OLD_PRICE_17)*100>                     
+            <#else>
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_17 = 0>
+        </#if>            
+    </#if>
+
+
+     <!-- 18th Deal Data-->
+    <#if var_DEAL_DISPLAY_COUNT == 18>
+    
+        <#assign var_DEAL_ID_18 = deal.DEAL_ID>
+        <#assign var_VERTICAL_DESCRIPTION_18 = deal.VERTICAL_DESCRIPTION_EN> 
+        <#assign var_DEAL_IMG_URL_18 = deal.BIG_IMG_URL> 
+        <#assign var_DEAL_TITLE_18 = deal.TITLE_EN>
+        <#assign var_DEAL_TAG_LINE_18 = deal.TAG_LINE_EN>        
+        <#assign var_DEAL_MAIL_SUBJECT_18 = deal.MAIL_SUBJECT_EN> 
+        <#assign var_DEAL_URL_UTM_18 = var_CAMPAIGN_UTM?replace("%%content%%",deal.URL_TITLE)>
+        <#assign var_DEAL_URL_18 = "https://www.cobone.com/"+var_CAMPAIGN_LANGUAGE+"/deals/" + deal.VERTICAL_URL +"/" + deal.URL_TITLE +"/"+var_DEAL_ID_18?c+"?"+var_DEAL_URL_UTM_18>  
+        <#assign var_DEAL_OLD_PRICE_18 = deal.OLD_PRICE>
+        <#assign var_DEAL_PRICE_18 = deal.PRICE> 
+        <#assign var_DEAL_DISCOUNT_PRICE_18 = var_DEAL_OLD_PRICE_18-var_DEAL_PRICE_18> 
+        <#if var_DEAL_DISCOUNT_PRICE_18 &gt;= 1 && var_DEAL_OLD_PRICE_18 &gt;= 1 && deal.IS_DISCOUNT_VISIBLE ="Y">
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_18 = (var_DEAL_DISCOUNT_PRICE_18/var_DEAL_OLD_PRICE_18)*100>                     
+            <#else>
+            <#assign var_DEAL_DISCOUNT_PRICE_PER_18 = 0>
+        </#if>            
+    </#if>
+    
+<!-- Deal display count increment -->
+<#assign var_DEAL_DISPLAY_COUNT = var_DEAL_DISPLAY_COUNT+1>
+
+</#data>

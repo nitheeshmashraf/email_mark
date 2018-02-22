@@ -1,0 +1,109 @@
+<#if var_DEAL_ID_0?isnull>
+ <#else>
+                                
+                                    <table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile_width" width="580" style="border-bottom:2px solid #ededed;">
+                                      <tbody>
+                                        <tr>
+                                          <td>
+                                            <table align="left" border="0" cellpadding="10" cellspacing="0" style="display:inline; float:left;">
+                                              <tr>
+                                                <td style="background-color:#39abf3;" bgcolor="#39abf3">
+                                                  <a href="${clickthrough('LINK_MAIN_DEAL','var_DEAL_URL_0=' +var_DEAL_URL_0)}" style="font-family:'Trebuchet MS', Arial, Helvetica, sans-serif;font-size:15px;font-weight:bold;text-decoration:none;color:#ffffff;padding:3px;">
+                                                    ${var_VERTICAL_DESCRIPTION_0}
+                                                  </a>
+                                                </td>
+                                              </tr>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            <a href="${clickthrough('LINK_MAIN_DEAL','var_DEAL_URL_0=' +var_DEAL_URL_0)}" target="_blank">
+                                              <img alt="${var_DEAL_MAIL_SUBJECT_0}" class="mobile_width" src="${var_DEAL_IMG_URL_0}" style="display:block;border-top:1px solid #f2f2f2;" width="580" />
+                                            </a>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            <table bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" class="mobile_width" style="margin: 0 auto;" width="580">
+                                              <tbody>
+                                                <tr>
+                                                  <td align="left" style="padding:10px 10px 10px 10px;" valign="top">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                      <tbody>
+                                                        <tr>
+                                                          <!-- Left Column -->
+                                                          <td align="left" class="deal_mobile" valign="top" style="padding:0 10px 0 0;" width="35%">
+                                                            <table border="0" cellpadding="0" cellspacing="0" class="mobile_width" style="margin:0 auto">
+                                                              <tbody>
+                                                                <tr>
+                                                                  <td class="deal_mobile_padding">
+                                                                    <table style="width:100%;" width="100%">
+                                                                      <tr>
+                                                                        <td align="center">
+                                                                          <a href="${clickthrough('LINK_MAIN_DEAL','var_DEAL_URL_0=' +var_DEAL_URL_0)}">
+                                                                            <img src="https://s3-eu-west-1.amazonaws.com/cdn.cobone.com/email/relay/en-btn-big.png" alt="View Deal" />
+                                                                          </a>
+                                                                        </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td align="center" style="padding-top:6px;font-family:'Trebuchet MS', Arial, Helvetica, sans-serif;font-size:19px;font-weight:bold;color:#39abf3;">
+                                                                          ${var_DEAL_PRICE_0} ${var_CAMPAIGN_CURRENCY}
+                                                                        </td>
+                                                                      </tr>
+                                                                      <tr><td style="height:1px;border-bottom:1px solid #ededed;"></td></tr>
+                                                                      <tr>
+                                                                        <td align="center">
+                                                                          <table style="padding-top:3px;padding-bottom:3px;width:100%;" width="100%">
+                                                                            <tr>
+                                                                              <td align="center" valign="top">
+                  <#if var_DEAL_OLD_PRICE_0 &gt;= 1 && var_DEAL_OLD_PRICE_0 !=var_DEAL_PRICE_0>                                                           <div style="font-family:'Trebuchet MS', Arial, Helvetica, sans-serif;font-size:12px;font-weight:normal;color:#8f8f8f;">Value</div>
+                                                                                <div style="font-family:'Trebuchet MS', Arial, Helvetica, sans-serif;font-size:14px;font-weight:normal;color:#666;">${var_DEAL_OLD_PRICE_0} ${var_CAMPAIGN_CURRENCY}</div>
+                                                                                </#if>
+                                                                              </td>
+                                                                              <td align="center" valign="top">
+                  <#if var_DEAL_DISCOUNT_PRICE_PER_0 &gt;= 1>                                                              <div style="font-family:'Trebuchet MS', Arial, Helvetica, sans-serif;font-size:12px;font-weight:normal;color:#8f8f8f;">Discount</div>
+                                                                                <div style="font-family:'Trebuchet MS', Arial, Helvetica, sans-serif;font-size:14px;font-weight:normal;color:#ff7b02;">${var_DEAL_DISCOUNT_PRICE_PER_0?int}% OFF</div>
+                  </#if>                                                           </td>
+                                                                              <td align="center" valign="top">
+                  <#if var_DEAL_DISCOUNT_PRICE_0 &gt;= 1>                                                              <div style="font-family:'Trebuchet MS', Arial, Helvetica, sans-serif;font-size:12px;font-weight:normal;color:#8f8f8f;">You save</div>
+                                                                                <div style="font-family:'Trebuchet MS', Arial, Helvetica, sans-serif;font-size:14px;font-weight:normal;color:#ff7b02;">${var_DEAL_DISCOUNT_PRICE_0} ${var_CAMPAIGN_CURRENCY}</div>
+                                                                              
+                  </#if>                                                            </td>
+                                                                            </tr>
+                                                                          </table>
+                                                                        </td>
+                                                                      </tr>
+                                                                    </table>
+                                                                  </td>
+                                                                </tr>
+                                                              </tbody>
+                                                            </table>
+                                                          </td>
+                                                          <!-- Right Column -->
+                                                          <td align="left" class="deal_mobile" valign="top" style="padding:0 0 0 10px;" width="65%">
+                                                            <table border="0" cellpadding="0" cellspacing="0" class="mobile_width" style="margin:0 auto">
+                                                              <tbody>
+                                                                <tr>
+                                                                  <td class="deal_mobile_padding">
+                                                                    <a href="${clickthrough('LINK_MAIN_DEAL','var_DEAL_URL_0=' +var_DEAL_URL_0)}" style="color:#000000;text-decoration:none;font-size:16px;font-family:'Trebuchet MS', Arial, Helvetica, sans-serif;" target="_blank">
+                                                                      ${var_DEAL_TITLE_0}
+                                                                    </a>
+                                                                  </td>
+                                                                </tr>
+                                                              </tbody>
+                                                            </table>
+                                                          </td>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                
+</#if>

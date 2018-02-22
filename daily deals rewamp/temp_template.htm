@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html style="opacity: 1;" xmlns="http://www.w3.org/1999/xhtml">
+<#compress>
+<head>
+   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+   <meta content="a" http-equiv="X-UA-Compatible" ie="edge" />
+   <meta content="width=device-width, initial-scale=1" name="viewport" />
+   <title>Cobone | Best Deals, Great Savings</title>
+   <style type="text/css">
+      /*<![CDATA[*/
+         @media only screen and (max-width: 480px)                       {
+           .mobile_width                           {
+             width: 100%;
+           }
+           .overall_wrapper                                {
+             padding: 0 20px;
+           }
+           .deal_mobile                            {
+             width: 100%;
+             float: left;
+           }
+           .hun_px                         {
+             width: 100px;
+           }
+           .db_mobile                              {
+             display:block;
+           }
+           .wd_50                          {
+             width: 50%;
+             float: left;
+           }
+           .deal_mobile_padding                            {
+             padding: 10px 7px 0 7px;
+           }
+           .deal2_mobile_padding                           {
+             padding: 0 7px 20px 7px;
+           }
+           .h_62                           {
+             height: 62px;
+           }
+           .hero_padding                           {
+             padding: 0px 7px 0px 7px;
+           }
+           .hero_deal_padding                              {
+             padding: 0px 7px 10px 7px;
+           }
+           .wd_90                          {
+             width: 90%;
+           }
+           .spotlightcolumn                           {
+             width: 100%;
+           }
+         }
+         /*]]>*/
+   </style>
+</head>
+<body bgcolor="#FFFFFF" style="margin: 0px; padding: 0px;">
+  <!-- Campaign variables -->
+<#assign var_CAMPAIGN_CITY = SQL_DAILY_DEALS_MASTER.CAMPAIGN_CITY>
+<#assign var_CAMPAIGN_LANGUAGE = "en">
+<#assign var_CAMPAIGN_CURRENCY = "AED">
+<#assign var_CAMPAIGN_DATE_dd_MM_yyyy = SQL_DAILY_DEALS_MASTER.CAMPAIGN_DATE?string("dd-MM-yyyy")>
+<#assign var_CAMPAIGN_DATE_FILTER_FORMAT = SQL_DAILY_DEALS_MASTER.CAMPAIGN_DATE?string("yyyy-MM-dd")>
+<!-- Dynamic General UTM creation -->
+<#assign var_CAMPAIGN_UTM = SQL_DAILY_DEALS_MASTER.CAMPAIGN_UTMS?replace("%%city%%",var_CAMPAIGN_CITY)?replace("%%lang%%",var_CAMPAIGN_LANGUAGE)?replace("%%date%%",var_CAMPAIGN_DATE_dd_MM_yyyy)>
+<#assign var_LINK_LOGO_UTM = var_CAMPAIGN_UTM?replace("%%content%%",var_CAMPAIGN_CITY + "-deals-link")>
+<#assign var_LINK_LOGO = "https://www.cobone.com/" + var_CAMPAIGN_LANGUAGE +"/deals/" + var_CAMPAIGN_CITY +"?"+var_LINK_LOGO_UTM>
+<#assign var_fb_UTM = var_CAMPAIGN_UTM?replace("%%content%%","facebook-icon-uae-link")>
+<#assign var_LINK_FB = "https://www.facebook.com/CoboneDubai">
+<#assign var_twitter_UTM = var_CAMPAIGN_UTM?replace("%%content%%","twitter-icon-uae-link")>
+<#assign var_LINK_TWITTER = "https://twitter.com/cobonedubai">
+<#assign var_instagram_UTM = var_CAMPAIGN_UTM?replace("%%content%%","instagram-icon-uae-link")>
+<#assign var_LINK_INSTA = "https://instagram.com/cobonedubai/?hl=" + var_CAMPAIGN_LANGUAGE>
+<#assign var_LINK_UNSUBS = "https://www.cobone.com/unsubscribe?lang=" + var_CAMPAIGN_LANGUAGE +"&email="+CONTACTS_LIST.EMAIL_ADDRESS_+"&r="+ messagedigest(CONTACTS_LIST.EMAIL_ADDRESS_+"{4BReF2PJO_nUydF-}","SHA-256")?hex+"&"+var_CAMPAIGN_UTM?replace("%%content%%","unsubscribe")><#assign var_TEXT_UNSUBS = "Unsubscribe">
+<#assign var_LINK_PRIVACY_POL = "https://www.cobone.com/" + var_CAMPAIGN_LANGUAGE +"/static/privacypolicy?"+var_CAMPAIGN_UTM?replace("%%content%%","privacy-policy")>
+<#assign var_TEXT_PRIVACY_POL = "Privacy Policy">
+<#assign var_LINK1_URL = "https://www.cobone.com/" + var_CAMPAIGN_LANGUAGE +"/deals/food-dining-dubai?"+var_CAMPAIGN_UTM?replace("%%content%%","food-dining")>
+<#assign var_LINK1_TEXT = "Food & Dining">
+<#assign var_LINK2_URL = "https://www.cobone.com/" + var_CAMPAIGN_LANGUAGE +"/deals/beauty-spa-dubai?"+var_CAMPAIGN_UTM?replace("%%content%%","beauty-spa")>
+<#assign var_LINK2_TEXT = "Beauty & Spa">
+<#assign var_LINK3_URL = "https://www.cobone.com/" + var_CAMPAIGN_LANGUAGE +"/deals/activities-dubai?"+var_CAMPAIGN_UTM?replace("%%content%%","activities")>
+<#assign var_LINK3_TEXT = "Wellness">
+<#assign var_LINK4_URL = "https://www.cobone.com/" + var_CAMPAIGN_LANGUAGE +"/deals/auto-dubai?"+var_CAMPAIGN_UTM?replace("%%content%%","auto")>
+<#assign var_LINK4_TEXT = "Auto">
+<!-- Common Code-->
+<#include "/contentlibrary/daily_deals_opt_ver_2/code-en.htm">
+<#include "/contentlibrary/daily_deals_opt_ver_2/code-destinations-dubai-en.htm">
+   <!-- Whole table wrapper -->
+   <table bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tbody>
+         <tr>
+            <td align="center" valign="top">
+               <!-- 600 Table wrapper -->
+               <table border="0" cellpadding="0" cellspacing="0" class="mobile_width overall_wrapper" width="600">
+                  <tbody>
+                     <tr>
+                        <td class="mobile_width" style="margin:0 auto" valign="top" width="600">
+                           <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                              <tbody>
+                                 <tr>
+                                    <td width="100%">
+                                       <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                          <tbody>
+                                             <!-- Top Line-->
+                                             <tr>
+                                                <td style="font-family:'Trebuchet MS', Arial, Helvetica, sans-serif;font-size:11px;font-weight:normal;text-decoration:none;text-align:center;color:#999999;padding:20px;"><#include "/contentlibrary/daily_deals_opt_ver_2_opt_ver_2/topline-en.htm"></td>
+                                             </tr>
+                                             <!-- Header-->
+                                             <tr>
+                                                <td align="left" style="padding:9px 0 9px 0" valign="top"><#include "/contentlibrary/daily_deals_opt_ver_2_opt_ver_2/header-en.htm"></td>
+                                             </tr>
+                                             <!-- Sep -->
+                                             <tr>
+                                                <td style="height:1px;border-bottom:1px solid #ededed;"></td>
+                                             </tr>
+                                             <!-- Top Banner -->
+                                             <tr>
+                                                <td align="center" bgcolor="#FFFFFF" class="hero_padding" style="padding:10px 0 10px 0;" valign="top"><#include "/contentlibrary/daily_deals_opt_ver_2_opt_ver_2/banner-en.htm"></td>
+                                             </tr>
+                                             <!-- Main Deal  -->
+                                             <tr>
+                                                <!-- <td align="left" class="hero_padding" style="padding:0 0 9px 0;" valign="top"><#include "/contentlibrary/daily_deals_opt_ver_2_opt_ver_2/testmain-deal-en.htm"></td> -->
+                                             </tr>
+                                             <!-- row deals -->
+                                             <#assign closetag_counter =0>
+                                             <#list counter as i>
+                                             <#if i = 0>it's i = 0 here.<#else>
+                                             it's i != 0 here.
+                                             <#if closetag_counter = 0>
+                                             it's closetag_counter = 0 here.
+                                             <tr>
+                                                <td align="left" class="hero_padding" style="padding:0 0 9px 0;" valign="top">
+                                                   <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                      <tbody>
+                                                         <tr>
+                                                            </#if>                       
+                                                            <#include "/contentlibrary/daily_deals_opt_ver_2_opt_ver_2/testrow.htm">
+                                                            <#if closetag_counter = 2>
+                                                            it's closetag_counter = 2 here.
+                                                         </tr>
+                                                      </tbody>
+                                                   </table>
+                                                </td>
+                                             </tr><#assign closetag_counter =0>
+                                             </#if></#if>
+                                             </#list>
+                                             <!-- Footer-->
+                                             <tr>
+                                                <td style="font-family:'Trebuchet MS', Arial, Helvetica, sans-serif;font-size:11px;font-weight:normal;text-decoration:none;text-align:center;color:#999999;padding:20px;"><#include "/contentlibrary/daily_deals_opt_ver_2_opt_ver_2/footer-en.htm"></td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+</body>
+</#compress>
+</html>
