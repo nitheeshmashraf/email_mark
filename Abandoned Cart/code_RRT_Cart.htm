@@ -1,0 +1,38 @@
+
+<#assign var_DEAL_ID = []>
+<#assign var_DEAL_IMG_URL = []> 
+<#assign var_DEAL_URL_UTM = []>
+<#assign var_DEAL_URL = []>
+<#assign var_Date=.now?date> 
+<#assign var_Date_form=var_Date?string("dd-MM-yyyy")>
+
+<#assign var_CAMPAIGN_UTM_format = "utm_source=rrt&utm_medium=email&utm_campaign=rrt-purchase-"+MAILING_LIST.CITY_+"-"+var_Date_form+"-"+MAILING_LIST.LANG_LOCALE+"&utm_content=">
+<#assign counter = []>
+
+
+<!-- Assign the deal display count -->
+<#assign i = 0>
+<!-- Start querying for deals -->
+<#data SQL_DEALS_DATA as deal>
+<#filter RIID_1 = MAILING_LIST.RIID_ >
+<#fields DEAL_ID IMG_URL URL_TITLE CITY_1>
+
+<!-- Main Deal Data-->
+
+
+<#assign var_DEAL_ID = var_DEAL_ID + [deal.DEAL_ID]>
+<#assign var_DEAL_IMG_URL = var_DEAL_IMG_URL + [deal.IMG_URL]> 
+<#assign var_CAMPAIGN_UTM = "utm_source=rrt&utm_medium=email&utm_campaign=rrt-purchase-"+MAILING_LIST.CITY_+"-"+var_Date_form+"-"+MAILING_LIST.LANG_LOCALE+"&utm_content="+deal.URL_TITLE>
+<#assign var_DEAL_URL_UTM_temp = var_CAMPAIGN_UTM>
+        <#assign var_DEAL_URL_UTM = var_DEAL_URL_UTM + [var_DEAL_URL_UTM_temp]>
+        <#assign var_DEAL_URL_temp = "https://www.cobone.com/"+MAILING_LIST.LANG_LOCALE+"/deals/" + deal.CITY_1 +"/" + deal.URL_TITLE +"/"+deal.DEAL_ID?c+"?"+var_CAMPAIGN_UTM>
+        <#assign var_DEAL_URL = var_DEAL_URL + [var_DEAL_URL_temp]>
+        
+
+	
+    
+<!-- Deal display count increment -->
+<#assign counter = counter + [i]>
+<#assign i = i+1>
+
+</#data>

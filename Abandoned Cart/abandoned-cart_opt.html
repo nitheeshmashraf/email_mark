@@ -113,7 +113,7 @@ td[class="social-icons-margin"] {
 
 </head>
 <body bgcolor="#f5f5f5" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="width:100% !important;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100% !important; margin:0; padding:0;background-color:#f5f5f5;text-align:center;">
-
+<#include "/contentlibrary/rrt/RRT_CART/code_RRT_Cart.htm">
     <table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#f5f5f5" style="margin:0; padding:0; width:100% !important;line-height: 100% !important; min-width: 320px; background-color: #f5f5f5; color:#ffffff;border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
         <tr>
           <td>
@@ -234,22 +234,33 @@ td[class="social-icons-margin"] {
                           </tr>
                       </table>
                       <!-- end of Salutation -->
+                      <#assign begin =0>
+                      <#list counter as i>
                       <!-- deals block -->
+                      <#if begin=0>
                       <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFF" align="center" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
                           <tr>
                             <td>
-                                <table width="295" cellspacing="0" cellpadding="0" border="0" align="left" class="deals-container" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
-                                  <#if count_of_deal%2=0>
+                              
+                                <table width="295" cellspacing="0" cellpadding="0" border="0" align="center" class="deals-container" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                                  
                                   <tr>
                                       <td>
                                         <table width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
                                         </table>
                                       </td>
                                   </tr>
-                                  </#if>
+                                  
                                   <tr>
+                                    <#assign begin = begin+1>
+                              <#else><#assign begin = begin+1></#if>
                                       <td width="10" style="line-height: 0; font-size: 0;background-color:#ffffff;" class="border-margin" height="10">&nbsp;</td>
+                                      <#if begin=1>
                                       <td style="background-color:#ffffff;">
+                                        </#if>
+                                        <#if begin=2>
+                                        <td style="background-color:#ffffff; padding-left:10px;">
+                                          </#if>
                                         <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="background-color:#ffffff;border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
                                             <tr>
                                               <td width="275" style="line-height: 0; font-size: 0; background-color:#ffffff; display: none;" height="10">&nbsp;</td>
@@ -257,7 +268,7 @@ td[class="social-icons-margin"] {
                                         </table>
                                         <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
                                             <tr>
-                                              <td><a href="${clickthrough('LINK_DEAL_'+count_of_deal,'var_LINK_DEAL_'+count_of_deal'=' +var_DEAL_URL[count_of_deal])}"><img src="https://d3dygw8n5l4bbu.cloudfront.net/deals/uae/66760/s1.jpg?v=19" alt="Great Value Getaways" width="285" height="145" border="0" style="outline:none; text-decoration:none; -ms-interpolation-mode: bicubic; border:none; display:block; font-family:'Open Sans', Arial, sans-serif; color:#0099ff; font-size:12px; max-width: 485px; max-height: 323px; min-width: 273px;" class="deal-image"/></a></td>
+                                              <td><a href="${var_DEAL_URL[i]}"><img src="${var_DEAL_IMG_URL[i]}" alt="Great Value Getaways" width="285" height="145" border="0" style="outline:none; text-decoration:none; -ms-interpolation-mode: bicubic; border:none; display:block; font-family:'Open Sans', Arial, sans-serif; color:#0099ff; font-size:12px; max-width: 485px; max-height: 323px; min-width: 273px;" class="deal-image"/></a></td>
                                             </tr>
                                         </table>
                                         <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="background-color:#ffffff;border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
@@ -267,111 +278,17 @@ td[class="social-icons-margin"] {
                                         </table>
                                       </td>
                                       <td width="10" class="borderpadding" style="line-height: 0; font-size: 0;background-color:#ffffff; display: none;" height="10">&nbsp;</td>
-                                  </tr>
+                                  <#if begin=2>
+                                </tr>
                                 </table>
+                      
                             </td>
                           </tr>
                       </table>
-                      <!-- <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFF" align="center" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
-                          <tr>
-                            <td>
-                                <table width="295" cellspacing="0" cellpadding="0" border="0" align="left" class="deals-container" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
-                                  <tr>
-                                      <td>
-                                        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
-                                        </table>
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td width="10" style="line-height: 0; font-size: 0;background-color:#ffffff;" height="10" class="border-margin" >&nbsp;</td>
-                                      <td style="background-color:#ffffff;">
-                                        <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="background-color:#ffffff;border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
-                                            <tr>
-                                              <td width="275" style="line-height: 0; font-size: 0; background-color:#ffffff; display: none;" height="10">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                        <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
-                                            <tr>
-                                              <td><a href="https://www.cobone.com/en/deals/destinations-dubai"><img src="https://d3dygw8n5l4bbu.cloudfront.net/deals/uae/63924/big-dubaimarinebuffet.jpg?v=78" alt="Great Value Getaways" width="285" height="145" border="0" style="outline:none; text-decoration:none; -ms-interpolation-mode: bicubic; border:none; display:block; font-family:'Open Sans', Arial, sans-serif; color:#0099ff; font-size:12px; max-width: 485px; max-height: 323px; min-width: 273px;" class="deal-image"/></a></td>
-                                            </tr>
-                                        </table>
-                                        <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="background-color:#ffffff;border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
-                                            <tr>
-                                              <td width="275" style="line-height: 0; font-size: 0; background-color:#ffffff" height="10">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                      </td>
-                                      <td width="10" class="borderpadding" style="line-height: 0; font-size: 0;background-color:#ffffff; display: none;" height="10">&nbsp;</td>
-                                  </tr>
-                                </table>
-                                <table width="295" cellspacing="0" cellpadding="0" border="0" align="right" class="deals-container" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
-                                  <tr>
-                                      <td width="10" class="borderpadding" style="line-height: 0; font-size: 0;background-color:#ffffff; display: none;" height="10">&nbsp;</td>
-                                      <td style="background-color:#ffffff;">
-                                        <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="background-color:#ffffff;border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
-                                            <tr>
-                                              <td width="275" style="line-height: 0; font-size: 0; background-color:#ffffff; display: none;" height="10">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                        <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
-                                            <tr>
-                                              <td><a href="https://www.cobone.com/en/deals/beauty-spa-dubai" target="_blank"><img src="https://d3dygw8n5l4bbu.cloudfront.net/deals/uae/66855/main.jpg?v=26" alt="Beauty Savers" width="285" height="145" border="0" style="outline:none; text-decoration:none; -ms-interpolation-mode: bicubic; border:none; display:block; font-family:'Open Sans', Arial, sans-serif; color:#0099ff; font-size:12px; max-width: 485px; max-height: 323px; min-width: 273px;" class="deal-image"/></a></td>
-                                            </tr>
-                                        </table>
-                                        <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="background-color:#ffffff;border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
-                                            <tr>
-                                              <td width="275" style="line-height: 0; font-size: 0; background-color:#ffffff" height="10">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                      </td>
-                                      <td width="10" style="line-height: 0; font-size: 0;background-color:#ffffff;" height="10" class="border-margin" >&nbsp;</td>
-                                  </tr>
-                                </table>
-                            </td>
-                          </tr>
-                      </table>
-                      <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f5f5f5" align="center" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
-                          <tr>
-                            <td height="150" bgcolor="#FFFFFF">
-                                <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFF" align="center" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
-                                  <tr>
-                                      <td>
-                                        <table width="295" cellspacing="0" cellpadding="0" border="0" align="center" class="deals-container" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
-                                            <tr>
-                                              <td>
-                                                  <table width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
-                                                  </table>
-                                              </td>
-                                            </tr>
-                                            <tr>
-                                              <td width="10" style="line-height: 0; font-size: 0;background-color:#ffffff;" height="10" class="border-margin" >&nbsp;</td>
-                                              <td style="background-color:#ffffff;">
-                                                  <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="background-color:#ffffff;border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
-                                                    <tr>
-                                                        <td width="275" style="line-height: 0; font-size: 0; background-color:#ffffff; display: none;" height="10">&nbsp;</td>
-                                                    </tr>
-                                                  </table>
-                                                  <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
-                                                    <tr>
-                                                        <td><a href="https://www.cobone.com/en/deals/destinations-dubai"><img src="https://d3dygw8n5l4bbu.cloudfront.net/deals/uae/64132/pullmancreek-ss1.jpg?v=26" alt="Great Value Getaways" width="285" height="145" border="0" style="outline:none; text-decoration:none; -ms-interpolation-mode: bicubic; border:none; display:block; font-family:'Open Sans', Arial, sans-serif; color:#0099ff; font-size:12px; max-width: 485px; max-height: 323px; min-width: 273px;" class="deal-image"/></a></td>
-                                                    </tr>
-                                                  </table>
-                                                  <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="background-color:#ffffff;border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
-                                                    <tr>
-                                                        <td width="275" style="line-height: 0; font-size: 0; background-color:#ffffff" height="10">&nbsp;</td>
-                                                    </tr>
-                                                  </table>
-                                              </td>
-                                              <td width="10" class="borderpadding" style="line-height: 0; font-size: 0;background-color:#ffffff; display: none;" height="10">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                      </td>
-                                  </tr>
-                                </table>
-                            </td>
-                          </tr>
-                      </table> -->
+                      <#assign begin = 0>
+                      <#else></#if>
                       <!--end of deals block -->
+                      </#list>
                       <!-- cta block -->
                       <table width="100%" border="0">
                           <tbody>
